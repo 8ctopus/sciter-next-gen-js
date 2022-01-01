@@ -1,0 +1,186 @@
+<html
+    window-resizable="true"
+    window-width="400dip"
+    window-height="900dip"
+>
+<head>
+<title>sciter next gen javascript</title>
+<style>
+
+@import url(vendor/8ctopus/sciter-fontawesome/src/fontawesome.css);
+@import url(vendor/8ctopus/sciter-logger/src/logger.css);
+
+body {
+    flow: vertical;
+}
+
+</style>
+<script type="module">
+
+import {logger} from "vendor/8ctopus/sciter-logger/src/logger.js";
+import * as utils from "vendor/8ctopus/sciter-utils/src/utils.js";
+
+// default import
+import bmiDefault from "./js/module.js";
+
+// named imports
+import {four} from "./js/module.js";
+import {bmi} from "./js/module.js";
+
+import {four as five} from "./js/module.js";
+
+// import all named exports
+import * as mod from "./js/module.js";
+
+// initialize logger
+logger.init();
+
+// attach logger to console
+logger.attach();
+
+// capture unhandled exceptions
+logger.capture(unhandledExceptionHandler);
+
+document.on("ready", function() {
+    // subscribe to logger messages
+    logger.plaintext(document.$("plaintext#logger"));
+
+    // log sciter version
+    console.debug(utils.sciterInfo());
+
+    // add support for F5 reload
+    utils.addReloadWindow();
+
+    // close window on escape key press
+    utils.closeWindowOnEscape(Window.this);
+
+    // center window on screen
+    utils.centerWindow(Window.this, "screen");
+
+    // bring window to front and set input focus
+    Window.this.activate(true);
+
+    console.line();
+    console.debug("arrow functions");
+
+    const multiply1 = (arg1, arg2) => {
+        return arg1 * arg2;
+    };
+
+    const multiply2 = (arg1, arg2) => arg1 * arg2;
+
+    console.log("multiply1(3, 3)", multiply1(3, 3));
+    console.log("multiply2(6, 6)", multiply2(6, 6));
+
+    console.line();
+    console.debug("import/export");
+
+    console.log("bmiDefault(78, 1.87)", bmiDefault(78, 1.87));
+    console.log("bmi(78, 1.87)", bmi(78, 1.87));
+    console.log("four", four);
+    console.log("five", five);
+
+    console.line();
+    console.debug("classes");
+
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+
+        hello = () => {
+            console.log(this.name);
+        }
+    }
+
+    let person = new Person("8ctopus");
+
+    person.hello();
+
+    console.line();
+    console.debug("spread and reset operator");
+
+    let myArray = [1,2,3];
+
+    let newArray = [...myArray, 4, 5, 6];
+
+    console.log(newArray);
+
+    // shallow clone object
+    let myObject = {
+        name: "8ctopus",
+        color: "variable",
+    };
+
+    //
+    let shallowClone = {
+        ...myObject,
+    };
+
+    shallowClone.name = "test";
+
+    console.log(myObject, shallowClone);
+
+    const multiply3 = (...args) => {
+        let result;
+        let i = 0;
+
+        for (let num of args) {
+            //console.log(num, result);
+
+            if (i === 0) {
+                result = num;
+                ++i;
+            }
+            else
+                result *= num;
+        }
+
+        return result;
+    };
+
+    console.log("multiply3(3, 4, 2, 5)", multiply3(3, 4, 2, 5));
+
+    const log = (...args) => {
+        args.forEach((num) => console.log(num));
+    };
+
+    console.log("log(1, 2, 3)");
+    log(1, 2, 3);
+
+    const array = [1, 2, 3, 4, 5];
+
+    const [, , third, fourth] = array;
+
+    console.log("third, fourth", third, fourth);
+
+    console.line();
+    console.debug("destructuring");
+
+    const octopus = {
+        name: "8ctopus",
+        color: "variable",
+        age: 5,
+        vision: "good",
+    }
+
+    const {color, age} = octopus;
+
+    console.log("color, age", color, age);
+});
+
+/**
+ * Unhandled exception handler
+ * @param {Error|string} exception
+ */
+function unhandledExceptionHandler(exception) {
+    // log exception using exception if it exists, error otherwise
+    typeof console.exception === "function" ? console.exception(exception) : console.error(exception);
+}
+
+</script>
+</head>
+<body>
+    <plaintext #logger readonly />
+</body>
+</html>
