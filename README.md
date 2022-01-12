@@ -1,6 +1,6 @@
 # sciter next gen javascript (ES6+)
 
-The aim of this project is to review the changes in the javascript language over time and experiment with those in [sciter.js](https://sciter.com/).
+The aim of this project is to review the changes in the javascript language over time and experiment with these in [sciter.js](https://sciter.com/).
 
 ## ECMAScript 2015 (ES6)
 
@@ -82,6 +82,13 @@ const myFirstPromise = new Promise((resolve, reject) => {
 ```
 
 ### modules (import and export)
+
+Modules provide an elegant way to split application code into separate sections. See [javascript.info](https://javascript.info/modules-intro).
+
+Before ES6 modules, programmers would use either `AMD`, `CommonJS` or `UMD`.
+
+`export` keyword labels variables and functions that should be accessible from outside the current module.
+`import` allows the import of functionality from other modules.
 
 ```js
 // default export = unamed export
