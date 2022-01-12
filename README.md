@@ -1,14 +1,16 @@
-# ES 6 javascript
+# sciter next gen javascript (ES6+)
+
+## ES6
 
 The 6th edition, ECMAScript 6 (ES6) and later renamed to ECMAScript 2015, was finalised in June 2015. [\*](https://en.wikipedia.org/wiki/ECMAScript)
 
 It introduces many changes to the language described below.
 
-## let and const keywords
+### let and const keywords
 
 `let` and `const` replace `var`.
 
-## for of loop
+### for of loop
 
 ```js
 const letters = ["a", "b", "c", "d", "e", "f"];
@@ -18,7 +20,7 @@ for (let letter of letters) {
 }
 ```
 
-## template literals
+### template literals
 
 Template literals provide an easy and clean way create multi-line strings and perform string interpolation.
 
@@ -32,7 +34,7 @@ const multiLine = `This is a
     multiline string`;
 ```
 
-## function argument default value
+### function argument default value
 
 ```js
 function sayHello(name="World") {
@@ -40,7 +42,7 @@ function sayHello(name="World") {
 }
 ```
 
-## arrow functions
+### arrow functions
 
 ```js
 const multiply = (arg1, arg2) => {
@@ -51,7 +53,7 @@ const multiply = (arg1, arg2) => {
 const multiply = (arg1, arg2) => arg1 * arg2;
 ```
 
-## classes
+### classes
 
 ```js
 class Person {
@@ -65,7 +67,7 @@ class Person {
 }
 ```
 
-## Promises
+### promises
 
 Promises are JavaScript's way to execute asynchronous code.
 
@@ -75,7 +77,7 @@ const myFirstPromise = new Promise((resolve, reject) => {
 });
 ```
 
-## modules, import and export
+### modules (import and export)
 
 ```js
 // default export = unamed export
@@ -99,7 +101,44 @@ import {four as five} from "./js/module.js";
 import * as mod from "./js/module.js";
 ```
 
-## spread and rest operator
+## ECMAScript 2016
+
+The 7th edition, or ECMAScript 2016, was finalised in June 2016. Its features include block-scoping of variables and functions, destructuring patterns (of variables), proper tail calls, exponentiation operator ** for numbers, await, async keywords for asynchronous programming (as a preparation for ES2017), and the Array.prototype.includes function.
+
+### destructuring
+
+```js
+// destructure array
+const array = [1, 2, 3, 4, 5];
+
+const [, , third, fourth] = array;
+console.log("third, fourth", third, fourth);
+
+// destructure object
+const octopus = {
+    name: "8ctopus",
+    color: "variable",
+    age: 5,
+    vision: good,
+}
+
+const {color, age} = octopus;
+console.log(color, age);
+```
+
+### async, await
+
+```js
+async function downloadText() {
+
+}
+
+let text = await downloadText();
+```
+
+## ECMAScript 2018
+
+### spread and rest operator
 
 `...`
 
@@ -126,27 +165,22 @@ const log = (...args) => {
 };
 ```
 
-## destructuring
+## ECMAScript 2020
+
+The 11th edition, or ECMAScript 2020, was published in June 2020.
+
+In addition to new functions, this version introduces a BigInt primitive type for arbitrary-sized integers, the nullish coalescing operator, and the globalThis object.
+
+### nullish coalescing operator
 
 ```js
-// destructure array
-const array = [1, 2, 3, 4, 5];
-
-const [, , third, fourth] = array;
-console.log("third, fourth", third, fourth);
-
-// destructure object
-const octopus = {
-    name: "8ctopus",
-    color: "variable",
-    age: 5,
-    vision: good,
+function sayHello(name) {
+    console.log(`hello ${name ?? "you"}`);
 }
-
-const {color, age} = octopus;
-console.log(color, age);
 ```
 
-## variables copy vs. reference
+Optional chaining makes it possible to access the nested properties of an object without having an AND check at each level. If any of the properties are not present, `zipcode` will be `undefined`.
 
-Primitive types are copied, while `Array` and `Object` are a reference to the original object.
+```js
+const zipcode = person?.address?.zipcode
+```
