@@ -1,6 +1,8 @@
 # sciter next gen javascript (ES6+)
 
-## ES6
+The aim of this project is to review the changes in the javascript language over time and experiment with those in [sciter.js](https://sciter.com/).
+
+## ECMAScript 2015 (ES6)
 
 The 6th edition, ECMAScript 6 (ES6) and later renamed to ECMAScript 2015, was finalised in June 2015. [\*](https://en.wikipedia.org/wiki/ECMAScript)
 
@@ -22,7 +24,7 @@ for (let letter of letters) {
 
 ### template literals
 
-Template literals provide an easy and clean way create multi-line strings and perform string interpolation.
+Template literals provide an easy and clean way to perform string interpolation and create multi-line strings.
 
 ```js
 const a = 10;
@@ -43,6 +45,8 @@ function sayHello(name="World") {
 ```
 
 ### arrow functions
+
+Arrow functions are a new way of writing functions.
 
 ```js
 const multiply = (arg1, arg2) => {
