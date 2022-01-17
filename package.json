@@ -1,0 +1,29 @@
+{
+  "name": "sciter-next-gen",
+  "version": "1.0.0",
+  "description": "The aim of this project is to review the changes in the javascript language over time and experiment with these in [sciter.js](https://sciter.com/).",
+  "main": "main.htm",
+  "scripts": {
+    "install-sdk": "node ./node_modules/sciter-sandbox/scripts/install.mjs cleanup",
+    "scapp": "node ./node_modules/sciter-sandbox/scripts/start.mjs scapp",
+    "usciter": "node ./node_modules/sciter-sandbox/scripts/start.mjs usciter",
+    "stop": "node ./node_modules/sciter-sandbox/scripts/stop.mjs",
+    "scapp32": "node ./node_modules/sciter-sandbox/scripts/start.mjs scapp32",
+    "usciter32": "node ./node_modules/sciter-sandbox/scripts/start.mjs usciter32"
+  },
+  "author": {
+    "name": "8ctopus",
+    "email": "hello@octopuslabs.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/8ctopus/sciter-next-gen-js/issues"
+  },
+  "homepage": "https://github.com/8ctopus/sciter-next-gen-js#readme",
+  "devDependencies": {
+    "sciter-sandbox": "^1.1.12",
+    "sciter-fontawesome": "^1.0.6",
+    "sciter-logger": "github:8ctopus/sciter-logger#1.1.0",
+    "sciter-utils": "github:8ctopus/sciter-utils#0.7.0"
+  }
+}
