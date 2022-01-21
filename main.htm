@@ -90,30 +90,30 @@ document.on("ready", function() {
 
         hello = () => {
             console.log(this.name);
-        }
+        };
     }
 
-    let person = new Person("8ctopus");
+    const person = new Person("8ctopus");
 
     person.hello();
 
     console.line();
     console.debug("spread and reset operator");
 
-    let myArray = [1,2,3];
+    const myArray = [1, 2, 3];
 
-    let newArray = [...myArray, 4, 5, 6];
+    const newArray = [...myArray, 4, 5, 6];
 
     console.log(newArray);
 
     // shallow clone object
-    let myObject = {
+    const myObject = {
         name: "8ctopus",
         color: "variable",
     };
 
     //
-    let shallowClone = {
+    const shallowClone = {
         ...myObject,
     };
 
@@ -125,7 +125,7 @@ document.on("ready", function() {
         let result;
         let i = 0;
 
-        for (let num of args) {
+        for (const num of args) {
             //console.log(num, result);
 
             if (i === 0) {
@@ -142,7 +142,8 @@ document.on("ready", function() {
     console.log("multiply3(3, 4, 2, 5)", multiply3(3, 4, 2, 5));
 
     const log = (...args) => {
-        args.forEach((num) => console.log(num));
+        for (const num of args)
+            console.log(num);
     };
 
     console.log("log(1, 2, 3)");
@@ -157,12 +158,12 @@ document.on("ready", function() {
     console.line();
     console.debug("destructuring");
 
-    const octopus = {
+    const octopus = Object.freeze({
         name: "8ctopus",
         color: "variable",
         age: 5,
         vision: "good",
-    }
+    });
 
     const {color, age} = octopus;
 
