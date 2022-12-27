@@ -39,7 +39,7 @@ Logger.init();
 Logger.attach();
 
 // capture unhandled exceptions
-Logger.capture(unhandledExceptionHandler);
+Logger.capture();
 
 document.on("ready", function() {
     // subscribe to logger messages
@@ -169,15 +169,6 @@ document.on("ready", function() {
 
     console.log("color, age", color, age);
 });
-
-/**
- * Unhandled exception handler
- * @param {Error|string} exception
- */
-function unhandledExceptionHandler(exception) {
-    // log exception using exception if it exists, error otherwise
-    typeof console.exception === "function" ? console.exception(exception) : console.error(exception);
-}
 
 </script>
 </head>
