@@ -6,4 +6,4 @@ export const four = 4;
 
 export const bmi = (weight, height) => weight / (height * height);
 
-export const cmToMeters = (length) => length / 100;
+export const cmToMeters = length => length / 100;

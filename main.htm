@@ -41,6 +41,28 @@ Logger.attach();
 // capture unhandled exceptions
 Logger.capture();
 
+// declare functions
+const multiply1 = (arg1, arg2) => arg1 * arg2;
+
+const multiply2 = (arg1, arg2) => arg1 * arg2;
+
+const multiply3 = (...args) => {
+    let result;
+    let i = 0;
+
+    for (const num of args) {
+        //console.log(num, result);
+
+        if (i === 0) {
+            result = num;
+            ++i;
+        } else
+            result *= num;
+    }
+
+    return result;
+};
+
 document.on("ready", function() {
     // subscribe to logger messages
     Logger.plaintext(document.$("plaintext#logger"));
@@ -62,12 +84,6 @@ document.on("ready", function() {
 
     console.line();
     console.debug("arrow functions");
-
-    const multiply1 = (arg1, arg2) => {
-        return arg1 * arg2;
-    };
-
-    const multiply2 = (arg1, arg2) => arg1 * arg2;
 
     console.log("multiply1(3, 3)", multiply1(3, 3));
     console.log("multiply2(6, 6)", multiply2(6, 6));
@@ -120,24 +136,6 @@ document.on("ready", function() {
     shallowClone.name = "test";
 
     console.log(myObject, shallowClone);
-
-    const multiply3 = (...args) => {
-        let result;
-        let i = 0;
-
-        for (const num of args) {
-            //console.log(num, result);
-
-            if (i === 0) {
-                result = num;
-                ++i;
-            }
-            else
-                result *= num;
-        }
-
-        return result;
-    };
 
     console.log("multiply3(3, 4, 2, 5)", multiply3(3, 4, 2, 5));
 
