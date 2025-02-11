@@ -143,7 +143,7 @@ const octopus = {
     name: "8ctopus",
     color: "variable",
     age: 5,
-    vision: good,
+    vision: "good",
 }
 
 const {color, age} = octopus;
@@ -154,7 +154,7 @@ console.log(color, age);
 
 ```js
 async function downloadText() {
-
+    ...
 }
 
 let text = await downloadText();
